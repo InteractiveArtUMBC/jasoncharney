@@ -52,8 +52,8 @@ function setup(){
   //create initial locations and speed. Smaller balls move faster.
   for (i=0;i < balls.length;i++){
   ballProperties[i] = random();
-  ballColor[i] = color(255,0);
   ballLoc[i] = createVector(random(width),random(height));
+  ballColor[i] = color(0,0);
   speed[i] =  createVector(random(minSpeed,(1-ballProperties[i])*maxSpeed),random(minSpeed,(1-ballProperties[i])*maxSpeed));
   }
 }
@@ -86,7 +86,7 @@ function ballBounce(){
     strokeWeight(map(prop,0,1,0.5,3));
     var nextSound = int(map(ballLoc[i].x,0,width-dia,0,sounds.length-1));
     var nextPan = map(ballLoc[i].x,0,width,-1.,1.);
-    var nextAmp = map(prop,0.,1.,0.5,1.);
+    var nextAmp = map(prop,0.,1.,0.2,1.);
 
 
 
@@ -95,21 +95,15 @@ function ballBounce(){
       sounds[nextSound].pan(nextPan);
       sounds[nextSound].setVolume(nextAmp);
       sounds[nextSound].play();
-      ballColor[i] = color(255,255);
     }
-    else{
-      ballColor[i] = color(255,0);
-    }
+
     if (ballLoc[i].y >= height || ballLoc[i].y <= 0){
       speed[i].y = -speed[i].y;
       sounds[nextSound].pan(nextPan);
       sounds[nextSound].setVolume(nextAmp);
       sounds[nextSound].play();
-      ballColor[i] = color(255,255);
     }
-    else{
-      ballColor[i] = color(255,0);
-    }
+
 
     ballLoc[i].x += speed[i].x;
     ballLoc[i].y += speed[i].y;
