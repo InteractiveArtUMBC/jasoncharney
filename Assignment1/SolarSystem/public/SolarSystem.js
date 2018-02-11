@@ -103,6 +103,7 @@ planetDistance.sort();
 
 function draw() {
   background(0);
+  normalMaterial();
   star();
   sun();
   planets();
