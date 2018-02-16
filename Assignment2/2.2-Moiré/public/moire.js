@@ -59,3 +59,9 @@ function One(horizPos,vertPos,horizSize,vertSize,minWidth,stripeAdd,stripeFill){
 function windowResized(){
   resizeCanvas(window.innerWidth, window.innerHeight);
 }
+
+function mousePressed() {
+    var fs = fullscreen();
+    fullscreen(!fs);
+    resizeCanvas(windowWidth,windowHeight);
+}
