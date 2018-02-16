@@ -14,7 +14,7 @@ function setup(){
   frameRate(60);
   createCanvas(window.innerWidth, window.innerHeight);
 
-  socket = io.connect('http://localhost:3000'); // this is named in the server file for new connections.
+  socket = io.connect(); // this is named in the server file for new connections.
   
   //store assigned id string
   socket.on('hey', function(id){
