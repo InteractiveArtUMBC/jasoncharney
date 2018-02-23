@@ -29,6 +29,9 @@ function draw(){
 }
 function windowResized(){
     resizeCanvas(window.innerWidth,window.innerHeight);
+    numRows = ceil(height/eyeWidth);
+    eyeWidth = width/eyesInEachRow;
+
 }
 
 function drawEyes(){
